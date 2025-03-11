@@ -4,3 +4,112 @@
 *:after {
   box-sizing: border-box;
 }
+
+/* My stuff */
+
+h1, h2, h3, h4, h5, h6{
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+body{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+
+/* body{
+  background-image: url('/images/site/small_check.jpg');
+} */
+
+header, nav, main, footer{
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+nav{
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+nav ul{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+}
+
+nav li{
+  display: block;
+  padding: 0.5rem;
+  background-color: #000;
+  flex-grow: 1;
+}
+
+nav a{
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+#index-hero img{
+  width: 100%;
+  height: auto;
+}
+
+#index-hero{
+  position: relative;
+}
+
+.delorean-info{
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #4A90E2;
+  position: absolute;
+  max-width: 50%;
+  height: auto;
+  top: 6%;
+  left: 6%;
+}
+
+.delorean-info img{
+  max-width: 45%;
+  height: auto;
+}
+
+#upgrades-parts{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#upgrades-parts section{
+  display: flex;
+  flex-direction: column;
+}
+
+#upgrades-parts img{
+  width: 80px;
+  height: auto;
+  background-color: #4A90E2;
+  padding: 0.75rem;
+}
+
+@media screen and (min-width: 600px){
+  #index-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #index-review{
+    grid-column: 2/3;
+  }
+}
