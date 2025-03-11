@@ -7,6 +7,10 @@
 
 /* My stuff */
 
+#wrapper{
+  background-color: #fff;
+}
+
 h1, h2, h3, h4, h5, h6{
   font-family: "Roboto", sans-serif;
   font-weight: 700;
@@ -104,6 +108,20 @@ nav a{
 }
 
 @media screen and (min-width: 600px){
+
+  body{
+    background-image: url("/images/site/small_check.jpg");
+    padding: 0;
+  }
+
+  header, nav, main, footer{
+    max-width: 1300px;
+  }
+
+  #wrapper{
+    border: solid 4px #4A90E2;
+  }
+
   #index-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
