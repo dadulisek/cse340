@@ -112,4 +112,8 @@ nav a{
   #index-review{
     grid-column: 2/3;
   }
+
+  li, a, p{
+    font-size: 1.25rem;
+  }
 }
