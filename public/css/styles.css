@@ -107,6 +107,24 @@ nav a{
   padding: 0.75rem;
 }
 
+#inv-display{
+  text-align: center;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+#inv-display li{
+  max-width: 500px;
+  border: solid 1px #818181;
+  margin: 0.25rem;
+  place-self: center;
+}
+
+#inv-display hr{
+  border: 3px solid #000;
+}
+
 @media screen and (min-width: 600px){
 
   body{
@@ -133,5 +151,9 @@ nav a{
 
   li, a, p{
     font-size: 1.25rem;
+  }
+
+  #inv-display{
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
