@@ -125,6 +125,21 @@ nav a{
   border: 3px solid #000;
 }
 
+/* Product */
+
+#product{
+  display: grid;
+  place-items: center;
+}
+#product img{
+  max-width: 400px;
+  height: auto;
+}
+
+.bold-product{
+  font-weight: bold;
+}
+
 @media screen and (min-width: 600px){
 
   body{
@@ -155,5 +170,15 @@ nav a{
 
   #inv-display{
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #product{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #product img{
+    grid-column: 1/2;
+    max-width: 500px;
+    height: auto;
   }
 }
