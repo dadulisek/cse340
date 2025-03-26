@@ -140,7 +140,7 @@ nav a{
   font-weight: bold;
 }
 
-#login-form{
+/* #login-form{
   background-color: #4A90E2;
   color: #fff;
   margin: 0 auto;
@@ -164,6 +164,64 @@ nav a{
 
 #login-form a{
   color: #fff;
+} */
+
+#login-form {
+  width: 350px; /* Make the box 350 pixels wide */
+  margin: 20px auto; /* Center the box on the page */
+  padding: 20px; /* Give the box some space inside */
+  border: 1px solid #ddd; /* Add a light gray border */
+  border-radius: 5px; /* Round the corners a little */
+  font-family: sans-serif; /* Use a simple font */
+  background-color: #007bff;
+  color: #fff;
+}
+
+#login-form label {
+  display: block; /* Make each label appear on a new line */
+  margin-top: 10px; /* Add space above each label */
+}
+
+#login-form input[type="email"],
+#login-form input[type="password"] {
+  width: 100%; /* Make the input fields fill the width of the box */
+  padding: 8px; /* Give the input fields some space inside */
+  margin-top: 5px; /* Add space below the input fields */
+  border: 1px solid #ddd; /* Add a light gray border */
+  border-radius: 3px; /* Round the corners a little */
+  box-sizing: border-box; /* Include padding and border in the width */
+}
+
+#login-form input[type="submit"] {
+  background-color: #4CAF50; /* Make the submit button blue */
+  color: white; /* Make the text white */
+  padding: 10px 15px; /* Give the button some space inside */
+  border: none; /* Remove the button border */
+  border-radius: 3px; /* Round the corners a little */
+  cursor: pointer; /* Change the cursor to a pointer when hovering */
+  margin-top: 20px; /* Add some space above the button */
+}
+
+
+#login-form span {
+  font-size: 11px;
+  color: #fff;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#login-form p {
+  margin-top: 20px; /* Add some space above the "No account?" message */
+  text-align: center; /* Center the message */
+}
+
+#login-form a {
+  color: #fff; /* Make the "Sign-up" link blue */
+  text-decoration: none; /* Remove the underline from the link */
+}
+
+#login-form a:hover {
+  text-decoration: underline; /* Add an underline when hovering */
 }
 
 /* Registration form */
@@ -187,6 +245,7 @@ nav a{
 #register-form label {
   display: block; /* Make each label appear on a new line */
   margin-top: 10px; /* Add space above each label */
+  color: #fff;
 }
 
 #register-form input[type="text"],
@@ -217,6 +276,16 @@ nav a{
 #register-form span {
   font-size: 11px;
   color: #fff;
+}
+
+input:required:invalid, input:focus:invalid {
+  background-color: #ff6b6b;
+  background-repeat: no-repeat;
+}
+
+input:required:valid {
+  background-color: #58ff58;
+  background-repeat: no-repeat;
 }
 
 @media screen and (min-width: 600px){
