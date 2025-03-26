@@ -140,6 +140,85 @@ nav a{
   font-weight: bold;
 }
 
+#login-form{
+  background-color: #4A90E2;
+  color: #fff;
+  margin: 0 auto;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-form form{
+  display: flex;
+  flex-direction: column;
+
+  max-width: 300px;
+}
+
+#login-form label, input{
+  margin: 0.25rem 0 0.25rem 0;
+}
+
+#login-form a{
+  color: #fff;
+}
+
+/* Registration form */
+
+#registration {
+  width: 400px; /* Make the box 400 pixels wide */
+  margin: 20px auto; /* Center the box on the page */
+  padding: 20px; /* Give the box some space inside */
+  border: 1px solid #ccc; /* Add a light gray border */
+  border-radius: 5px; /* Round the corners a little */
+  font-family: sans-serif; /* Use a simple font */
+  background-color: #4A90E2;
+}
+
+#registration p {
+  color: red; /* Make the "All fields are required" message red */
+  font-size: 14px; /* Make the message a little smaller */
+  margin-bottom: 10px; /* Add space below the message */
+}
+
+#register-form label {
+  display: block; /* Make each label appear on a new line */
+  margin-top: 10px; /* Add space above each label */
+}
+
+#register-form input[type="text"],
+#register-form input[type="email"],
+#register-form input[type="password"] {
+  width: 100%; /* Make the input fields fill the width of the box */
+  padding: 8px; /* Give the input fields some space inside */
+  margin-top: 5px; /* Add space below the input fields */
+  border: 1px solid #ddd; /* Add a light gray border */
+  border-radius: 3px; /* Round the corners a little */
+  box-sizing: border-box; /* Include padding and border in the width */
+}
+
+#register-form input[type="submit"] {
+  background-color: #4CAF50; /* Make the submit button green */
+  color: white; /* Make the text white */
+  padding: 10px 15px; /* Give the button some space inside */
+  border: none; /* Remove the button border */
+  border-radius: 3px; /* Round the corners a little */
+  cursor: pointer; /* Change the cursor to a pointer when hovering */
+  margin-top: 20px; /* Add some space above the button */
+}
+
+#register-form input[type="submit"]:hover {
+  background-color: #3e8e41; /* Make the button a darker green when hovering */
+}
+
+#register-form span {
+  font-size: 11px;
+  color: #fff;
+}
+
 @media screen and (min-width: 600px){
 
   body{
