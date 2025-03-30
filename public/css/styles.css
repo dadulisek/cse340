@@ -288,6 +288,64 @@ input:required:valid {
   background-repeat: no-repeat;
 }
 
+#management{
+  display: flex;
+  flex-direction: column;
+}
+
+#management a{
+  margin: 0.5rem;
+}
+
+#add-classification {
+  width: 350px; /* Make the box 350 pixels wide */
+  margin: 20px auto; /* Center the box on the page */
+  padding: 20px; /* Add space inside the box */
+  border-radius: 8px; /* Round the corners a little */
+  font-family: sans-serif; /* Use a simple font */
+  background-color: #4A90E2;
+  color: #fff;
+}
+
+#add-classification p {
+  font-size: 14px; /* Make the message a little smaller */
+  margin-bottom: 10px; /* Add space below the message */
+}
+
+#add-classification label {
+  display: block; /* Make each label appear on a new line */
+  margin-top: 10px; /* Add space above each label */
+  font-weight: bold; /* Make the label text bold */
+}
+
+#add-classification input[type="text"] {
+  width: 100%; /* Make the input field fill the width of the box */
+  padding: 8px; /* Give the input field some space inside */
+  margin-top: 5px; /* Add space below the input field */
+  border: 1px solid #ccc; /* Add a light gray border */
+  border-radius: 4px; /* Round the corners a little */
+  box-sizing: border-box; /* Include padding and border in the width */
+}
+
+#add-classification input[type="submit"] {
+  background-color: #9a9a9a; /* Make the submit button light blue */
+  color: black; /* Make the text black */
+  padding: 10px 15px; /* Give the button some space inside */
+  border: none; /* Remove the button border */
+  border-radius: 4px; /* Round the corners a little */
+  cursor: pointer; /* Change the cursor to a pointer when hovering */
+  margin-top: 20px; /* Add space above the button */
+}
+
+#add-classification input[type="submit"]:hover {
+  background-color: steelblue; /* Make the button a darker blue when hovering */
+}
+
+#add-classification span {
+  font-size: 11px; /* Make the message smaller */
+}
+
+
 @media screen and (min-width: 600px){
 
   body{

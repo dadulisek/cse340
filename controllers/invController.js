@@ -36,5 +36,50 @@ invCont.buildById = async function (req, res, next) {
   })
 }
 
+//Buid Management view
+invCont.builManagement = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("./inventory/management", {
+    title: "Vehicle Management",
+    nav,
+    errors: null,
+  })
+}
+
+//Build Add Classification view
+invCont.buildAddClassification = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("./inventory/add-classification", {
+    title: "Add New Classification",
+    nav,
+    errors: null,
+  })
+}
+
+// Add the new class to the classification table
+invCont.addClassification = async function (req, res) {
+  let nav = await utilities.getNav()
+  const { classification_name } = req.body
+
+  const regResult = await invModel.addClassificationToDB(classification_name)
+
+  if (regResult) {
+    req.flash("notice", `The ${classification_name} classification was succesfully added`);
+    res.status(201).render('inventory/management', {
+      title: 'Vehicle Management',
+      nav,
+      errors: null,
+
+    });
+  } else {
+    req.flash("notice", "Sorry, the proccess failed.")
+    res.status(501).render('/add-classification', {
+      title: 'Add Classification',
+      nav,
+      errors: null,
+
+    });
+  }
+}
 
 module.exports = invCont
