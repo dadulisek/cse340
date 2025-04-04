@@ -73,12 +73,83 @@ invCont.addClassification = async function (req, res) {
     });
   } else {
     req.flash("notice", "Sorry, the proccess failed.")
-    res.status(501).render('/add-classification', {
+    res.status(501).render('inventory/add-classification', {
       title: 'Add Classification',
       nav,
       errors: null,
 
     });
+  }
+}
+
+invCont.buildAddInventory = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  let dropMenu = await utilities.buildClassificationList()
+
+  res.render("./inventory/add-inventory", {
+    title: "Add New Inventory Item",
+    nav,
+    dropMenu,
+    errors: null,
+  })
+}
+
+invCont.addVehicle = async function(req, res){
+  const {
+      classification_id,
+      inv_make,
+      inv_model,
+      inv_year,
+      inv_description,
+      inv_image,
+      inv_thumbnail,
+      inv_price,
+      inv_miles,
+      inv_color
+  } = req.body
+
+  const dbResult = await invModel.addVehicle(
+      classification_id,
+      inv_make,
+      inv_model,
+      inv_year,
+      inv_description,
+      inv_image,
+      inv_thumbnail,
+      inv_price,
+      inv_miles,
+      inv_color
+  )
+
+  if(dbResult){
+      req.flash(
+          "notice", 
+          `${inv_year} ${inv_make} ${inv_model} successfully added to inventory.`
+      )
+      let nav = await utilities.getNav()
+      res.status(201).render("inventory/management",{
+          title:"Inventory Management",
+          nav,
+      })
+  } else {
+      let nav = await utilities.getNav()
+      let classificationMenu = await utilities.buildClassificationMenu(classification_id)
+      req.flash("notice", "Sorry, the vehicle creation failed.")
+      res.status(501).render("inventory/add-inventory",{
+          title:"Add Vehicle",
+          nav,
+          classificationMenu,
+          errors:null,
+          inv_make,
+          inv_model,
+          inv_year,
+          inv_description,
+          inv_image,
+          inv_thumbnail,
+          inv_price,
+          inv_miles,
+          inv_color
+      })
   }
 }
 

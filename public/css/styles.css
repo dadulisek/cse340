@@ -345,6 +345,44 @@ input:required:valid {
   font-size: 11px; /* Make the message smaller */
 }
 
+/* Add Inventory form */
+
+#add-inventory {
+  width: 300px; /* Adjust width as needed */
+  margin: 20px auto; /* Center the form */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: sans-serif;
+}
+
+#add-inventory label {
+  display: block; /* Make labels appear on their own line */
+  margin-top: 10px;
+  margin-bottom: 5px; /* Add space below labels */
+}
+
+#add-inventory input,
+#add-inventory select {
+  width: 100%; /* Make inputs and select fill the container */
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px; /* Add space below inputs/select */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+#add-inventory input[type="submit"] {
+  background-color: #4CAF50; /* Green submit button */
+  color: white;
+  cursor: pointer;
+  margin-top: 15px; /* Add space above submit button */
+}
+
+#add-inventory input[type="submit"]:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
 
 @media screen and (min-width: 600px){
 

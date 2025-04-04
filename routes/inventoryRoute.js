@@ -14,5 +14,9 @@ router.get("/", utilities.handleErrors(invController.builManagement));
 router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification));
 // Store the data (Can't see error message)
 router.post("/add-classification", regValidate.addClassificationRules(), regValidate.checkClassificationData, utilities.handleErrors(invController.addClassification));
+// Route to Add Inventory
+router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory));
+// Store the new inventory
+router.post("/add-inventory", regValidate.addVehicleRules(), regValidate.checkVehicleData, utilities.handleErrors(invController.addVehicle));
 
 module.exports = router;
