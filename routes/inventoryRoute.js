@@ -24,6 +24,11 @@ router.get("/getInventory/:classification_id", utilities.handleErrors(invControl
 router.get("/edit/:inv_id", utilities.handleErrors(invController.buildEditInventory))
 
 //Sending edited data
-router.post("/update/", regValidate.addVehicleRules(), regValidate.checkUpdateData, invController.updateInventory)
+router.post("/update/", regValidate.addVehicleRules(), regValidate.checkUpdateData, utilities.handleErrors(invController.updateInventory))
+
+// Delete confirmation view
+router.get("/delete/:inv_id", utilities.handleErrors(invController.buildDelete))
+
+router.post("/delete/", utilities.handleErrors(invController.deleteInventory))
 
 module.exports = router;
