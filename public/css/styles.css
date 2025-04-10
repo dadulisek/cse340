@@ -347,7 +347,7 @@ input:required:valid {
 
 /* Add Inventory form */
 
-#add-inventory {
+.add-inventory {
   width: 300px; /* Adjust width as needed */
   margin: 20px auto; /* Center the form */
   padding: 20px;
@@ -356,14 +356,14 @@ input:required:valid {
   font-family: sans-serif;
 }
 
-#add-inventory label {
+.add-inventory label {
   display: block; /* Make labels appear on their own line */
   margin-top: 10px;
   margin-bottom: 5px; /* Add space below labels */
 }
 
-#add-inventory input,
-#add-inventory select {
+.add-inventory input,
+.add-inventory select {
   width: 100%; /* Make inputs and select fill the container */
   padding: 8px;
   margin-top: 5px;
@@ -373,15 +373,58 @@ input:required:valid {
   box-sizing: border-box; /* Include padding and border in width */
 }
 
-#add-inventory input[type="submit"] {
+.add-inventory input[type="submit"] {
   background-color: #4CAF50; /* Green submit button */
   color: white;
   cursor: pointer;
   margin-top: 15px; /* Add space above submit button */
 }
 
-#add-inventory input[type="submit"]:hover {
+.add-inventory input[type="submit"]:hover {
   background-color: #45a049; /* Darker green on hover */
+}
+
+/* Inv Table style */
+
+#inventoryDisplay {
+  width: 100%; /* Make the table take up the full width of its container */
+  border-collapse: collapse; /* Make single borders instead of double ones */
+  margin-bottom: 20px; /* Add some space below the table */
+}
+
+#inventoryDisplay th {
+  background-color: #f2f2f2; /* Light gray background for the header */
+  color: #333; /* Dark text color for the header */
+  padding: 10px; /* Space inside the header cells */
+  text-align: left; /* Align header text to the left */
+  border-bottom: 2px solid #ddd; /* A line at the bottom of the header */
+}
+
+#inventoryDisplay td {
+  padding: 8px; /* Space inside the data cells */
+  border-bottom: 1px solid #eee; /* Light gray line between rows */
+}
+
+#inventoryDisplay tr:nth-child(even) {
+  background-color: #f9f9f9; /* Slightly different background for even rows, makes it easier to read */
+}
+
+#inventoryDisplay a {
+  color: #007bff; /* Blue color for the links */
+  text-decoration: none; /* Remove underlines from links */
+  padding: 5px 10px; /* Some space around the links */
+  border: 1px solid #007bff; /* Blue border around the links */
+  border-radius: 5px; /* Slightly rounded corners for the links */
+  margin-right: 5px; /* Add a little space between the Modify and Delete buttons */
+}
+
+#inventoryDisplay a:hover {
+  background-color: #007bff; /* Blue background when you hover over the link */
+  color: white; /* White text when you hover */
+}
+
+#edit-submit{
+  display: none;
 }
 
 @media screen and (min-width: 600px){

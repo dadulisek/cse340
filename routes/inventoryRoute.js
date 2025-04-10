@@ -19,4 +19,11 @@ router.get("/add-inventory", utilities.handleErrors(invController.buildAddInvent
 // Store the new inventory
 router.post("/add-inventory", regValidate.addVehicleRules(), regValidate.checkVehicleData, utilities.handleErrors(invController.addVehicle));
 
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+// For editing inventory data
+router.get("/edit/:inv_id", utilities.handleErrors(invController.buildEditInventory))
+
+//Sending edited data
+router.post("/update/", regValidate.addVehicleRules(), regValidate.checkUpdateData, invController.updateInventory)
+
 module.exports = router;
