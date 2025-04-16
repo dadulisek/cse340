@@ -23,7 +23,31 @@ post(
   regValidate.checkLoginData,
   utilities.handleErrors(accountController.accountLogin)
 )
-
+// Build managment view
 router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildManagement))
+
+router.get("/update/:accountId", utilities.checkLogin, utilities.handleErrors(accountController.updateAccountView))
+
+
+router.post(
+  "/update-info",
+  regValidate.updateAccountRules(),
+  regValidate.checkUpdateData,
+  utilities.handleErrors(accountController.updateAccountInfo)
+);
+
+// POST: handle password change
+router.post(
+  "/update-password",
+  regValidate.passwordRules(),
+  regValidate.checkPasswordData,
+  utilities.handleErrors(accountController.updatePassword)
+);
+
+router.get("/logout", (req, res) => {
+  res.clearCookie("jwt");
+  // req.flash("notice", "You have successfully logged out.");
+  res.redirect("/");
+});
 
 module.exports = router;

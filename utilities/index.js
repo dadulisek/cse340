@@ -115,13 +115,14 @@ Util.checkJWTToken = (req, res, next) => {
     req.cookies.jwt,
     process.env.ACCESS_TOKEN_SECRET,
     function (err, accountData) {
+      res.locals.loggedin = false
      if (err) {
       req.flash("Please log in")
       res.clearCookie("jwt")
       return res.redirect("/account/login")
      }
      res.locals.accountData = accountData
-     res.locals.loggedin = 1
+     res.locals.loggedin = true
      next()
     })
   } else {
@@ -140,5 +141,33 @@ Util.checkJWTToken = (req, res, next) => {
     return res.redirect("/account/login")
   }
  }
+
+ // Check if admin is logged in
+ Util.authorizeAdmin = (req, res, next) => {
+  const token = req.cookies.jwt;
+  if (token) {
+    const jwt = require("jsonwebtoken");
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, accountData) => {
+      if (err) {
+        req.flash("notice", "Please log in.");
+        res.clearCookie("jwt");
+        return res.redirect("/account/login");
+      }
+
+      const { account_type } = accountData;
+
+      if (account_type === "Admin" || account_type === "Employee") {
+        return next();
+      } else {
+        req.flash("notice", "You do not have permission to access this page.");
+        return res.redirect("/account/login");
+      }
+    });
+  } else {
+    req.flash("notice", "You must be logged in to access this page.");
+    return res.redirect("/account/login");
+  }
+};
 
 module.exports = Util

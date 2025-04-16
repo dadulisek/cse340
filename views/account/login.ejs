@@ -6,6 +6,10 @@
 
 <%- messages() %>
 
+<% if (messages.notice) { %>
+    <div class="notice"><%= messages.notice %></div>
+  <% } %>
+
 <div id="login-form">
     <form id="loginForm" action="/account/login" method="post">
         <label for="account_email">Email: </label>

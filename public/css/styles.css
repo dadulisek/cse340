@@ -427,6 +427,31 @@ input:required:valid {
   display: none;
 }
 
+form {
+  max-width: 400px;
+  margin-bottom: 2rem;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+}
+
+form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+form button {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.5rem;
+}
+
+#tools{
+  float: right;
+}
+
 @media screen and (min-width: 600px){
 
   body{

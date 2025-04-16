@@ -115,12 +115,12 @@ validate.loginRules = () => {
 * Check data and return errors or continue to login
 * ***************************** */
 validate.checkLoginData = async (req, res, next) => {
-  console.log("checkLoginData Zacatek")
+  // console.log("checkLoginData Zacatek")
   const { account_email } = req.body
   let errors = []
   errors = validationResult(req)
   if (!errors.isEmpty()) {
-    console.log("checkLoginData Porucha")
+    // console.log("checkLoginData Porucha")
     let nav = await utilities.getNav()
     res.render("account/login", {
       errors,
@@ -133,4 +133,77 @@ validate.checkLoginData = async (req, res, next) => {
   next()
 }
   
+
+validate.updateAccountRules = () => {
+  return [
+    body("account_firstname")
+      .trim()
+      .notEmpty()
+      .withMessage("First name is required."),
+    body("account_lastname")
+      .trim()
+      .notEmpty()
+      .withMessage("Last name is required."),
+    body("account_email")
+      .trim()
+      .isEmail()
+      .withMessage("A valid email is required.")
+      .custom(async (email, { req }) => {
+        const existingAccount = await accountModel.getAccountByEmail(email);
+        if (
+          existingAccount &&
+          existingAccount.account_id != req.body.account_id
+        ) {
+          throw new Error("Email already in use.");
+        }
+      }),
+  ];
+};
+
+validate.checkUpdateData = async (req, res, next) => {
+  const { account_firstname, account_lastname, account_email, account_id } = req.body;
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.render("account/update-account", {
+      title: "Update Account",
+      errors: errors.array(),
+      account_firstname,
+      account_lastname,
+      account_email,
+      accountData: { account_id },
+    });
+  }
+  next();
+};
+
+validate.passwordRules = () => {
+  return [
+    body("new_password")
+      .trim()
+      .notEmpty()
+      .isStrongPassword({
+        minLength: 12,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+      .withMessage(
+        "Password must be at least 12 characters and include a number, an uppercase letter, and a special character."
+      ),
+  ];
+};
+
+validate.checkPasswordData = (req, res, next) => {
+  const { new_password, account_id } = req.body;
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.render("account/update-account", {
+      title: "Update Account",
+      errors: errors.array(),
+      accountData: { account_id },
+    });
+  }
+  next();
+};
   module.exports = validate
