@@ -18,3 +18,11 @@
     <a href="/inv">Go to Inventory Management</a>
   </p>
 <% } %>
+
+<h3>Leave a Message</h3>
+<form method="POST" action="/account/message">
+  <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+  <textarea name="message_text" required></textarea>
+  <button type="submit">Send</button>
+</form>
+<a href="/account/messages">Messages Sent by You</a>

@@ -1,0 +1,7 @@
+<h1><%= title %></h1>
+<ul>
+  <% messages.forEach(msg => { %>
+    <li><%= msg.created_at.toLocaleString() %>: <%= msg.message_text %></li>
+  <% }) %>
+</ul>
+<a href="/account/">Back to Account</a>

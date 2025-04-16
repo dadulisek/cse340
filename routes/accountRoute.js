@@ -4,6 +4,7 @@ const router = new express.Router()
 const utilities = require("../utilities/index")
 const accountController = require("../controllers/accountController")
 const regValidate = require('../utilities/account-validation')
+const messageController = require("../controllers/messageController");
 //Routes to do stuff
 router.get("/login", utilities.handleErrors(accountController.buildLogin))
 router.get("/register", utilities.handleErrors(accountController.buildRegister))
@@ -49,5 +50,8 @@ router.get("/logout", (req, res) => {
   // req.flash("notice", "You have successfully logged out.");
   res.redirect("/");
 });
+
+router.post("/message", utilities.checkLogin, utilities.handleErrors(messageController.sendMessage));
+router.get("/messages", utilities.checkLogin, utilities.handleErrors(messageController.viewMessages));
 
 module.exports = router;
